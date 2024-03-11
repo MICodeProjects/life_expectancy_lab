@@ -1,5 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500">
 
-     <text x="250" y="250" text-anchor="middle">Insert your line graph here</text>
+<line x1="100" y1="75" x2="100" y2="400" stroke="blue"/>
+<line x1="100" y1="400" x2="800" y2="400" stroke="blue"/>
+
+
+<rect x="110" y ="10" width="300" height="300" stroke="blue" fill="purple"/>
+<text x="20" y="30">Graph title</text>
+
+{% for point in Can_line_endpoints %}
+    <line x1="{{100+loop.index0*5}}" y1="{{400-point[0]*5}}" x2="{{100+(loop.index0+1)*5}}" y2="{{400-point[1]*5}}" stroke="green"/>
+ 
+{% endfor %}
+
+{% for year in p_years %}
+    <text x="{{(year-1960)*19+100}}" y="475">{year}</text>
+{% endfor %}
+
 
 </svg>
