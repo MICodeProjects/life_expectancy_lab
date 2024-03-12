@@ -1,20 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 500" width="1050" height="500">
 
 <line x1="100" y1="75" x2="100" y2="400" stroke="blue"/>
-<line x1="100" y1="400" x2="800" y2="400" stroke="blue"/>
+<line x1="100" y1="400" x2="1000" y2="400" stroke="blue"/>
 
 
 <rect x="110" y ="10" width="300" height="300" stroke="blue" fill="purple"/>
 <text x="20" y="30">Graph title</text>
 
-{% for point in Can_line_endpoints %}
-    <line x1="{{100+loop.index0*5}}" y1="{{400-point[0]*5}}" x2="{{100+(loop.index0+1)*5}}" y2="{{400-point[1]*5}}" stroke="green"/>
+{% for year in years %}
+    <line x1="{{100+loop.index0*75}}" y1="{{400-point[0]*5}}" x2="{{100+(loop.index0+1)*75}}" y2="{{400-point[1]*5}}" stroke="green"/>
  
 {% endfor %}
 
-{% for year in p_years %}
-    <text x="{{(year-1960)*19+100}}" y="475">{year}</text>
+{% for year in label_years %}
+    {% if loop.index0 %}
+    <text class="label" x="{{25+(loop.index0)*75}}" y="425">{{year}}</text>
+    {% endif %}
 {% endfor %}
+
 
 
 </svg>

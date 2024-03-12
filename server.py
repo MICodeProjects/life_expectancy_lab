@@ -12,9 +12,13 @@ def index():
     f.close()
     years=sorted(list(data["Canada"].keys()))
 
-    p_years = []
+    label_years = []
     for year in years:
-        p_years.append(int(year)-1960)
+        if int(year) %5 == 0:
+            label_years.append(year)
+
+
+   
 
     Can_line_endpoints = []
     Us_line_endpoints = []
@@ -32,7 +36,7 @@ def index():
 
     print(Can_line_endpoints, Us_line_endpoints, Mex_line_endpoints)
     #render the template with the apporpriate data
-    return render_template('index.html', p_years = p_years, data = data, years=years, Can_line_endpoints = Can_line_endpoints, Us_line_endpoints = Us_line_endpoints, Mex_line_endpoints = Mex_line_endpoints)
+    return render_template('index.html', label_years = label_years, data = data, years=years, Can_line_endpoints = Can_line_endpoints, Us_line_endpoints = Us_line_endpoints, Mex_line_endpoints = Mex_line_endpoints)
 
 
 @app.route('/year')
